@@ -1,5 +1,5 @@
 def all_thing_is_obj(thing: any) -> int:
-    if (isinstance(thing, int)):
+    if (not isinstance(thing, (list, tuple, set, dict, str))):
         print("Type not found")
     else:
         title = "";
