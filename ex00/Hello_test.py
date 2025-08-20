@@ -1,39 +1,28 @@
+import pytest
 from Hello import ft_list, ft_tuple, ft_set, ft_dict
 
-# print(ft_list)
-# print(ft_tuple)
-# print(ft_set)
-# print(ft_dict)
+
+@pytest.mark.parametrize(
+    "test_input, expected",
+    [
+        (ft_list, list),
+        (ft_tuple, tuple),
+        (ft_set, set),
+        (ft_dict, dict),
+    ],
+)
+def test_ft_list_type(test_input, expected):
+    assert isinstance(test_input, expected)
 
 
-def test_ft_list_type():
-    assert isinstance(ft_list, list)
-
-
-def test_ft_list_value():
-    assert ft_list == ["Hello", "World!"]
-
-
-def test_ft_tuple_type():
-    assert isinstance(ft_tuple, tuple)
-
-
-def test_ft_tuple_value():
-    assert ft_tuple == ("Hello", "France!")
-
-
-def test_ft_set_type():
-    assert isinstance(ft_set, set)
-
-
-def test_ft_set_value():
-    assert ft_set == {"Hello", "Paris!"}
-
-
-def test_ft_dict_type():
-    assert isinstance(ft_dict, dict)
-
-
-def test_ft_dict_value():
-    assert ft_dict == {'Hello': '42Paris!'}
-
+@pytest.mark.parametrize(
+    "test_input, expected",
+    [
+        (ft_list, ["Hello", "World!"]),
+        (ft_tuple, ("Hello", "France!")),
+        (ft_set, {"Hello", "Paris!"}),
+        (ft_dict, {"Hello": "42Paris!"}),
+    ],
+)
+def test_ft_list_value(test_input, expected):
+    assert test_input == expected
